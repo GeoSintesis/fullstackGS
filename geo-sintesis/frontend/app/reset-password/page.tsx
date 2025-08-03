@@ -72,8 +72,8 @@ function UnsuspendedResetPassword() {
           <div>
             <img
               className="h-12 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=500"
-              alt="Your Company"
+              src="/logo2Canva.svg"
+              alt="Geo-Síntesis"
             />
             <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
               Reset your password

@@ -13,10 +13,14 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "FastAPI/React starter stack",
-  description: "Accelerate your next web development project",
+  title: "Geo-Síntesis",
+  description: "Plataforma de inteligencia geoespacial",
+  icons: {
+    icon: '/logo2Canva.svg',
+    // También puedes añadir diferentes tamaños si lo necesitas
+    apple: '/logo2Canva.svg',
+  },
 };
-
 export default function RootLayout({
   children,
 }: {

@@ -51,13 +51,13 @@ export default function Navigation() {
                     <Link href="/" className="flex flex-shrink-0 items-center">
                       <img
                         className="block h-8 w-auto lg:hidden"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=600"
-                        alt="Your Company"
+                        src="/logo2Canva.svg"
+                        alt="Your Geo-Síntesis"
                       />
                       <img
                         className="hidden h-8 w-auto lg:block"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=rose&shade=600"
-                        alt="Your Company"
+                        src="/logo2Canva.svg"
+                        alt="Your Geo-Síntesis"
                       />
                     </Link>
                   </div>
