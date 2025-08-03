@@ -1,0 +1,46 @@
+/* Estilos específicos para la infografía */
+.card {
+    @apply bg-white rounded-3xl transition-all duration-300;
+}
+
+.card:hover {
+    @apply transform -translate-y-2 shadow-2xl;
+}
+
+.phase-card {
+    @apply border-l-8;
+}
+
+.phase-1-border {
+    @apply border-accent;
+}
+
+.phase-2-border {
+    @apply border-secondary;
+}
+
+.tool-card {
+    @apply bg-gray-50 border-t-4 border-muted;
+}
+
+.icon-circle {
+    @apply w-12 h-12 rounded-full flex items-center justify-center text-2xl text-white;
+}
+
+.timeline-arrow {
+    @apply flex items-center justify-center py-8;
+}
+
+.timeline-arrow div {
+    @apply w-0 h-0;
+}
+
+.arrow-right {
+    @apply border-l-[40px] border-l-muted border-y-[30px] border-y-transparent;
+}
+
+@media (max-width: 767px) {
+    .timeline-arrow div {
+        @apply border-x-[30px] border-x-transparent border-t-[40px] border-t-muted border-b-0;
+    }
+}
