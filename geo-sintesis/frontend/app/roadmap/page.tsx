@@ -142,7 +142,7 @@ export default function RoadmapPage() {
               </div>
             </div>
             <p className="mb-8 text-gray-700">
-              La plataforma se expande a nivel regional (Andes, Caribe, Amazonía) con modelos de negocio SaaS, paquetes para constructoras, aseguradoras e instituciones públicas.
+              La plataforma se expande a nivel regional con modelos de negocio SaaS, paquetes para constructoras, aseguradoras e instituciones públicas.
             </p>
 
             <div className="space-y-6">
