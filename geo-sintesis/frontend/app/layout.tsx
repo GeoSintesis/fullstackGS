@@ -1,9 +1,16 @@
 import "./assets/css/main.css";
 import type { Metadata } from "next";
+import { Poppins } from 'next/font/google';
 import Navigation from "./components/Navigation";
 import Notification from "./components/Notification";
 import ReduxProvider from "./lib/reduxProvider";
 import Footer from "./components/Footer";
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-poppins',
+});
 
 export const metadata: Metadata = {
   title: "FastAPI/React starter stack",
@@ -17,8 +24,8 @@ export default function RootLayout({
 }) {
   return (
     <ReduxProvider>
-      <html lang="en">
-        <body>
+      <html lang="en" className={poppins.variable}>
+        <body className="font-sans">
           <div className="bg-white">
             <slot name="header">
               <Navigation />
