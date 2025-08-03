@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/mdx": "^2.0.8",
-    "@types/node": "latest",
+    "@types/node": "^24.1.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "autoprefixer": "latest",
@@ -46,7 +46,7 @@
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^9.1.0",
     "postcss": "latest",
-    "tailwindcss": "latest",
+    "tailwindcss": "^4.1.11",
     "typescript": "latest"
   }
 }
