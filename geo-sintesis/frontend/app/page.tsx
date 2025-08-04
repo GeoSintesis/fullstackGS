@@ -1,13 +1,8 @@
-"use client";
+'use client';
 
-import { ChevronRightIcon } from "@heroicons/react/20/solid"
-import Link from "next/link"
-import { useRouter, useSearchParams } from "next/navigation"
-import { Suspense, useEffect } from "react"
-import { useAppDispatch, useAppSelector } from "./lib/hooks"
-import { loggedIn, magicLogin } from "./lib/slices/authSlice"
-import { tokenIsTOTP } from "./lib/utilities"
-import { token } from "./lib/slices/tokensSlice"
+import Link from 'next/link';
+import { Suspense } from 'react';
+import { MapIcon, LightBulbIcon, ChartBarIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 const github = {
   name: "GitHub",
   href: "https://github.com/mongodb-labs/full-stack-fastapi-mongodb",
@@ -28,31 +23,63 @@ const redirectTOTP = "/totp";
 const redirectAfterLogin = "/";
 
 function UnsuspendedPage() {
-  const router = useRouter()
-  const query = useSearchParams()
+  return (
+    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-primary to-gray-900 text-white px-4">
+      <div className="max-w-4xl mx-auto text-center space-y-8">
+        {/* Logo y Título */}
+        <div className="space-y-4">
+          <img
+            src="/logo2Canva.svg"
+            alt="Geo-Síntesis Logo"
+            className="h-24 w-auto mx-auto"
+          />
+          <h1 className="text-6xl md:text-7xl font-black tracking-wide">
+            Geo-Síntesis
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-300 font-normal">
+            Transformando Datos del Cielo en Seguridad en la Tierra
+          </p>
+        </div>
 
-  const dispatch = useAppDispatch();
+        {/* Descripción */}
+        <p className="text-lg font-light text-white max-w-2xl mx-auto leading-relaxed">
+          Geo-Síntesis es una plataforma de inteligencia geoespacial que utiliza datos 
+          del programa Copernicus para convertir información satelital compleja en 
+          herramientas claras y accionables. Nuestra misión es anticipar y mitigar los 
+          riesgos de desastres naturales como inundaciones y deslizamientos, proporcionando 
+          a los tomadores de decisiones la información que necesitan para construir un 
+          futuro más seguro y resiliente.
+        </p>
 
-  const accessToken = useAppSelector((state) => token(state));
-  const isLoggedIn = useAppSelector((state) => loggedIn(state));
+        {/* Botones de navegación */}
+        <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6 pt-8">
+          <Link
+            href="/main"
+            className="flex items-center space-x-2 bg-secondary hover:bg-accent text-white px-8 py-3 rounded-full shadow-lg transform transition-all hover:scale-105"
+          >
+            <MapIcon className="h-6 w-6" />
+            <span>Explorar Mapa Interactivo</span>
+          </Link>
 
-  useEffect(() => {
-    async function load() {
-      // Check if email is being validated
-      if (query && query.get("magic")) {
-        await new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(true);
-          }, 100);
-        });
-        if (!isLoggedIn)
-          await dispatch(magicLogin({ token: query.get("magic") as string }));
-        if (tokenIsTOTP(accessToken)) router.push(redirectTOTP);
-        else router.push(redirectAfterLogin);
-      }
-    }
-    load();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+          <Link
+            href="/landing"
+            className="flex items-center space-x-2 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-3 rounded-full transition-all"
+          >
+            <LightBulbIcon className="h-6 w-6" />
+            <span>Nuestra Visión y Propuesta</span>
+          </Link>
+
+          <Link
+            href="/roadmap"
+            className="flex items-center space-x-2 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-3 rounded-full transition-all"
+          >
+            <ChartBarIcon className="h-6 w-6" />
+            <span>Hoja de Ruta Tecnológica</span>
+          </Link>
+        </div>
+      </div>
+    </main>
+  );
 
   return (
     <main>
@@ -181,5 +208,9 @@ function UnsuspendedPage() {
 }
 
 export default function Page() {
-  return <Suspense><UnsuspendedPage /></Suspense>
+  return (
+    <Suspense>
+      <UnsuspendedPage />
+    </Suspense>
+  );
 }
